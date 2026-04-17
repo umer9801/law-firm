@@ -116,6 +116,11 @@ export function Footer() {
               Member of the Law Society of Ontario. Licensed Paralegal.
             </p>
           </div>
+          <div className="mt-4 text-center">
+            <p className="text-xs opacity-60">
+              Designed by <a href="http://www.solvixcore.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 transition-opacity underline">Solvix Core</a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
