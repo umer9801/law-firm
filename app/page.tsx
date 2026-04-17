@@ -24,7 +24,7 @@ const services = [
   {
     title: "Motor Vehicle Accidents",
     description: "Expert representation for all types of motor vehicle accident claims including SABS benefits.",
-    image: "/images/injury.jpg",
+    image: "/images/mv.webp",
     href: "/services#mva",
   },
   {

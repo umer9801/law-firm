@@ -34,7 +34,7 @@ const services = [
 
 Motor Vehicle Accidents (MVAs) are some of the most costly and traumatic events to the average Ontarian. After an MVA, there are important legal rights and obligations anyone involved should be aware of. If this is your first MVA, it is important you contact our office to assist you with the legal process.`,
     highlight: "We provide all these services on a contingent basis, meaning you will only pay when you get paid.",
-    image: "/images/injury.jpg",
+    image: "/images/mv.webp",
   },
   {
     id: "wsib",
@@ -96,7 +96,7 @@ The manager of an establishment or building has a legal obligation to maintain a
 
 Easily prevented Slip and Falls can leave a victim unable to work or with a permanent injury. That's why Prudential Legal Services has created services to help clients determine liability, file claims with third parties, and negotiate quick settlements, or even represent a client in court, if need be.`,
     highlight: "As there are very strict timelines and regulations on slip and fall claims, I urge you to contact us immediately after the fall to get legal advice.",
-    image: "/images/injury.jpg",
+    image: "/images/slip.webp",
   },
   {
     id: "small-claims",
@@ -132,7 +132,7 @@ Prudential Legal Services assists those who have completed their sentence includ
 Applying for a Criminal Pardon can be time consuming and confusing if you are unfamiliar with the processes and documentation.
 
 We will take away all the burden and confusion by completing and obtaining all documents necessary to obtain a clear Criminal Pardon.`,
-    image: "/images/courthouse.jpg",
+    image: "/images/criminal.jpg",
   },
   {
     id: "criminal",
@@ -147,7 +147,7 @@ We will take away all the burden and confusion by completing and obtaining all d
       "Theft under $5,000 or possession of stolen property under $5,000",
       "Fraud, forgery, making false statements",
     ],
-    image: "/images/courthouse.jpg",
+    image: "/images/hehe.webp",
   },
 ]
 
