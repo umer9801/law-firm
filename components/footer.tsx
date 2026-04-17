@@ -26,13 +26,9 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div className="space-y-6">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
-                <Scale className="w-6 h-6 text-secondary-foreground" />
-              </div>
-              <div>
-                <span className="font-serif text-xl font-bold">Prudential</span>
-                <span className="block text-xs tracking-wider uppercase opacity-80">Legal Services</span>
+            <Link href="/" className="flex items-center">
+              <div className="w-20 h-20 rounded-lg overflow-hidden flex items-center justify-center">
+                <img src="/images/logo.png" alt="Prudential Legal Services" className="w-full h-full object-contain" />
               </div>
             </Link>
             <p className="text-sm leading-relaxed opacity-80">

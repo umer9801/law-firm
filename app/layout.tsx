@@ -20,21 +20,8 @@ export const metadata: Metadata = {
   description: 'Prudential Legal Services offers knowledgeable and qualified legal advice and representation. Motor vehicle accidents, WSIB, traffic violations, small claims, and more.',
   keywords: 'paralegal, legal services, Ontario, Mississauga, motor vehicle accidents, WSIB, traffic violations, small claims court, landlord tenant',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: '/images/logo.png',
+    apple: '/images/logo.png',
   },
 }
 

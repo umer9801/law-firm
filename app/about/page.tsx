@@ -143,7 +143,7 @@ export default function AboutPage() {
               <div className="relative">
                 <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
                   <Image
-                    src="/images/team.jpg"
+                    src="/images/owner.png"
                     alt="Satheesan Kumarasamy"
                     width={600}
                     height={700}
