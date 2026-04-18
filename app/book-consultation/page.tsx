@@ -62,10 +62,40 @@ const benefits = [
 
 export default function BookConsultationPage() {
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setIsSubmitted(true)
+    setIsSubmitting(true)
+
+    const formData = new FormData(e.currentTarget)
+    const data = {
+      firstName: formData.get('firstName'),
+      lastName: formData.get('lastName'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      service: formData.get('service'),
+      description: formData.get('description'),
+      date: formData.get('date'),
+      time: formData.get('time'),
+      additional: formData.get('additional'),
+    }
+
+    try {
+      const response = await fetch('/api/consultation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+
+      if (response.ok) {
+        setIsSubmitted(true)
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (isSubmitted) {
@@ -245,7 +275,7 @@ export default function BookConsultationPage() {
                         <label htmlFor="service" className="text-sm font-medium text-foreground">
                           Type of Legal Matter *
                         </label>
-                        <Select required>
+                        <Select required name="service">
                           <SelectTrigger className="h-12 bg-background">
                             <SelectValue placeholder="Select a service" />
                           </SelectTrigger>
@@ -294,7 +324,7 @@ export default function BookConsultationPage() {
                         <label htmlFor="time" className="text-sm font-medium text-foreground">
                           Preferred Time *
                         </label>
-                        <Select required>
+                        <Select required name="time">
                           <SelectTrigger className="h-12 bg-background">
                             <SelectValue placeholder="Select a time" />
                           </SelectTrigger>
@@ -328,8 +358,8 @@ export default function BookConsultationPage() {
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full sm:w-auto">
-                    Submit Consultation Request
+                  <Button type="submit" size="lg" className="w-full sm:w-auto" disabled={isSubmitting}>
+                    {isSubmitting ? 'Submitting...' : 'Submit Consultation Request'}
                     <Calendar className="w-4 h-4 ml-2" />
                   </Button>
                 </form>

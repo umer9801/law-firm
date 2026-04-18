@@ -1,5 +1,8 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
+import { useState } from "react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { AnimatedSection } from "@/components/animated-section"
@@ -14,12 +17,6 @@ import {
   ArrowRight,
   Send
 } from "lucide-react"
-import type { Metadata } from "next"
-
-export const metadata: Metadata = {
-  title: "Contact Us | Prudential Legal Services",
-  description: "Contact Prudential Legal Services for legal assistance. Located in Mississauga, serving GTA, Peel, York, Durham regions. Call (416) 723-7387.",
-}
 
 const contactInfo = [
   {
@@ -55,6 +52,64 @@ const hours = [
 ]
 
 export default function ContactPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+
+    const formData = new FormData(e.currentTarget)
+    const data = {
+      firstName: formData.get('firstName'),
+      lastName: formData.get('lastName'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      subject: formData.get('subject'),
+      message: formData.get('message'),
+    }
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+
+      if (response.ok) {
+        setIsSubmitted(true)
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error)
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  if (isSubmitted) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Navigation />
+        <section className="pt-32 pb-20">
+          <div className="container mx-auto px-4 lg:px-8">
+            <div className="max-w-2xl mx-auto text-center">
+              <h1 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-6">
+                Message Sent Successfully
+              </h1>
+              <p className="text-muted-foreground mb-8">
+                Thank you for contacting us. We will get back to you within 24 hours.
+              </p>
+              <Button asChild>
+                <Link href="/">Return to Home</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+        <Footer />
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -131,7 +186,7 @@ export default function ContactPage() {
                 For urgent matters, please call us directly.
               </p>
 
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label htmlFor="firstName" className="text-sm font-medium text-foreground">
@@ -213,8 +268,8 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full sm:w-auto">
-                  Send Message
+                <Button type="submit" size="lg" className="w-full sm:w-auto" disabled={isSubmitting}>
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                   <Send className="w-4 h-4 ml-2" />
                 </Button>
               </form>
