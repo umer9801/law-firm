@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
+import { FloatingCallButton } from "@/components/floating-call-button"
 import { AnimatedSection } from "@/components/animated-section"
 import { Button } from "@/components/ui/button"
 import { 
@@ -51,7 +52,11 @@ const credentials = [
   {
     icon: Scale,
     title: "Law Society Member",
-    description: "Member of the Law Society of Ontario",
+    description: (
+      <span className="flex items-center gap-2">
+        Member of <img src="/images/lawon.png" alt="Law Society of Ontario" className="h-5 w-auto inline-block" />
+      </span>
+    ),
   },
 ]
 
@@ -105,6 +110,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <FloatingCallButton />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 lg:pb-32">
@@ -159,11 +165,15 @@ export default function AboutPage() {
                     Satheesan Kumarasamy
                   </h3>
                   <p className="text-sm text-muted-foreground mb-2">
-                    BSc, BA (Hons), MA
+                    BSc, BA (Hons), MA, LLM
                   </p>
-                  <p className="text-sm text-secondary font-medium">
-                    Licensed Paralegal - Member of the Law Society of Ontario
+                  <p className="text-sm text-secondary font-medium mb-3">
+                    Notary Public | Licensed Paralegal
                   </p>
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm text-muted-foreground">Member of</span>
+                    <img src="/images/lawon.png" alt="Law Society of Ontario" className="h-8 w-auto" />
+                  </div>
                 </div>
               </div>
             </AnimatedSection>
@@ -176,19 +186,24 @@ export default function AboutPage() {
                 Experience & Education Combined
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Prudential Legal Services has gained its experience and knowledge through many years 
+                Satheesan Kumarasamy at Prudential Legal Services has gained his experience and knowledge through many years 
                 of education, hard work, and hands-on experience working in one of Durham Region&apos;s 
                 most reputed and established law office, the Allyce Law Office.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Having received a Bachelor of Science - Biology (Natural Science) and Bachelor of 
-                Arts in Political Science with Honours, and Master of Arts in Integrated Studies 
-                degrees with specialization in Political Science, Satheesan Kumarasamy then furthered 
-                his studies to obtain a Paralegal - Advocate Diploma.
+                I am a licensed paralegal through the Law Society of Ontario. I founded Prudential Legal Services in September 2010, 
+                which is a fully licensed firm that offers its clients knowledgeable and qualified legal advice and representation.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                After receiving the Bachelor of Science in Biology (Natural Science) and Bachelor of Arts in Political Science with Honours, 
+                I entered the Master of Arts in Integrated Studies degree program with specialization in Political Science, then furthered 
+                my studies to acquire a Paralegal - Advocate Diploma in the academic year of 2009-2010.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Acquiring his diploma, Kumarasamy was also able to obtain an Alternate Dispute 
-                Resolution Certificate (ADR) making him proficient in assisting in matters of mediation.
+                After acquiring my diploma, I also obtained an Alternate Dispute Resolution Certificate (ADR) making my proficiency in 
+                assisting in matters of mediation and conflict resolution. I wrote the LSO exam in August 2010 and successfully passed 
+                the first time. I began my PhD studies in the US in Criminal Justice with a specialization in Law and Justice Administration. 
+                Further, I commenced my LLM with the specialization in Constitutional Law at Osgoode Hall Law School in 2000 and completed it in 2022.
               </p>
 
               <div className="p-6 bg-muted rounded-xl">
@@ -223,11 +238,11 @@ export default function AboutPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {credentials.map((credential, index) => (
               <AnimatedSection key={credential.title} delay={index * 100}>
-                <div className="bg-card p-6 rounded-xl border border-border hover:shadow-lg transition-shadow">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                <div className="group bg-card p-6 rounded-xl border border-border hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
                     <credential.icon className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold text-foreground mb-2">{credential.title}</h3>
+                  <h3 className="font-semibold text-foreground mb-2 group-hover:text-secondary transition-colors">{credential.title}</h3>
                   <p className="text-sm text-muted-foreground">{credential.description}</p>
                 </div>
               </AnimatedSection>
@@ -303,12 +318,12 @@ export default function AboutPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => (
               <AnimatedSection key={value.title} delay={index * 100}>
-                <div className="bg-primary-foreground/10 backdrop-blur-sm p-6 rounded-xl border border-primary-foreground/20 h-full">
-                  <div className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center mb-4">
+                <div className="group bg-primary-foreground/10 backdrop-blur-sm p-6 rounded-xl border border-primary-foreground/20 h-full hover:bg-primary-foreground/20 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 cursor-pointer">
+                  <div className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                     <value.icon className="w-6 h-6 text-secondary-foreground" />
                   </div>
-                  <h3 className="font-semibold text-primary-foreground mb-2">{value.title}</h3>
-                  <p className="text-sm text-primary-foreground/70">{value.description}</p>
+                  <h3 className="font-semibold text-primary-foreground mb-2 group-hover:text-white transition-colors">{value.title}</h3>
+                  <p className="text-sm text-primary-foreground/70 group-hover:text-primary-foreground/90 transition-colors">{value.description}</p>
                 </div>
               </AnimatedSection>
             ))}

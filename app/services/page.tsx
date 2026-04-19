@@ -2,58 +2,39 @@ import Image from "next/image"
 import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
+import { FloatingCallButton } from "@/components/floating-call-button"
 import { AnimatedSection } from "@/components/animated-section"
 import { Button } from "@/components/ui/button"
 import { 
   ArrowRight, 
   Car, 
-  HardHat, 
   TrafficCone, 
-  Building2, 
   Home, 
   FileText,
   Scale,
   ShieldCheck,
   AlertTriangle,
-  CheckCircle
+  CheckCircle,
+  Stamp
 } from "lucide-react"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Legal Services | Prudential Legal Services",
-  description: "Comprehensive legal services including motor vehicle accidents, WSIB claims, traffic violations, small claims court, landlord tenant matters, and criminal pardons.",
+  description: "Comprehensive legal services including SABS, provincial offences, traffic violations, slip and falls, small claims court, landlord tenant matters, notary public services, and criminal pardons.",
 }
 
 const services = [
   {
-    id: "mva",
+    id: "sabs",
     icon: Car,
-    title: "Motor Vehicle Accident Claims (SABS)",
+    title: "SABS",
     shortDesc: "Expert representation for all types of motor vehicle accident claims.",
     description: `Motor vehicle accidents, bicycle accidents, pedestrian - car accidents, and any other type of motor vehicle accidents can have long lasting and devastating financial, social, emotional, and psychological consequences for the injured person and their family. If you have been injured in a motor vehicle accident, you should obtain legal advice and understand your legal rights and interests.
 
 Motor Vehicle Accidents (MVAs) are some of the most costly and traumatic events to the average Ontarian. After an MVA, there are important legal rights and obligations anyone involved should be aware of. If this is your first MVA, it is important you contact our office to assist you with the legal process.`,
     highlight: "We provide all these services on a contingent basis, meaning you will only pay when you get paid.",
     image: "/images/mv.webp",
-  },
-  {
-    id: "wsib",
-    icon: HardHat,
-    title: "WSIB / Disability",
-    shortDesc: "Comprehensive support for workplace injury claims and disability benefits.",
-    description: `Work related injuries can be some of the most important cases the firm deals with, as these cases often affect the way people earn a living, either as an employer or injured worker. Prudential Legal Services has developed a comprehensive program for both the employer and the employee in WSIB injury case management.
-
-We represent employers and injured workers at tribunals; negotiate for clients at mediation or arbitration, file WSIB claims, and educate businesses on how to effectively and efficiently manage WSIB claims.`,
-    benefits: [
-      "Benefit for Loss of Earnings (LOE)",
-      "Benefit for Non-Economic Loss (NEL)",
-      "Loss of Retirement Income (LRI) Benefit",
-      "Benefit for Future Economic Loss (FEL)",
-      "Health Care Benefits",
-      "Health Care Equipment and Supplies",
-      "Labour Market Re-entry",
-    ],
-    image: "/images/services-bg.jpg",
   },
   {
     id: "provincial",
@@ -149,12 +130,33 @@ We will take away all the burden and confusion by completing and obtaining all d
     ],
     image: "/images/hehe.webp",
   },
+  {
+    id: "notary",
+    icon: Stamp,
+    title: "Notary Public / Commissioner of Oath for Taking Affidavit",
+    shortDesc: "Professional notary and commissioner services for document authentication.",
+    description: `As a licensed Notary Public and Commissioner of Oaths, Prudential Legal Services provides essential document authentication and certification services. These services are crucial for various legal, business, and personal matters requiring official verification.
+
+A Notary Public is authorized to witness signatures, certify copies of documents, and administer oaths and affirmations. A Commissioner of Oaths can administer oaths and take affidavits, which are sworn written statements used in legal proceedings.
+
+Our notary services ensure your documents meet all legal requirements for use in Ontario and beyond. We understand the importance of proper documentation and provide efficient, reliable service for all your notarization needs.`,
+    services: [
+      "Witnessing and certifying signatures",
+      "Administering oaths and affirmations",
+      "Taking affidavits and statutory declarations",
+      "Certifying true copies of original documents",
+      "Notarizing documents for international use",
+      "Authentication of legal documents",
+    ],
+    image: "/images/consultation.jpg",
+  },
 ]
 
 export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <FloatingCallButton />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 lg:pb-32">
@@ -250,11 +252,11 @@ export default function ServicesPage() {
                       </div>
                     )}
 
-                    {service.benefits && (
+                    {(service as any).benefits && (
                       <div className="mb-6">
                         <h3 className="font-semibold text-foreground mb-3">Benefits Include:</h3>
                         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                          {service.benefits.map((benefit) => (
+                          {(service as any).benefits.map((benefit: string) => (
                             <li key={benefit} className="flex items-center gap-2 text-sm text-muted-foreground">
                               <CheckCircle className="w-4 h-4 text-secondary flex-shrink-0" />
                               {benefit}
@@ -264,11 +266,11 @@ export default function ServicesPage() {
                       </div>
                     )}
 
-                    {service.acts && (
+                    {(service as any).acts && (
                       <div className="mb-6">
                         <h3 className="font-semibold text-foreground mb-3">Acts We Cover:</h3>
                         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                          {service.acts.map((act) => (
+                          {(service as any).acts.map((act: string) => (
                             <li key={act} className="flex items-center gap-2 text-sm text-muted-foreground">
                               <CheckCircle className="w-4 h-4 text-secondary flex-shrink-0" />
                               {act}
@@ -278,14 +280,28 @@ export default function ServicesPage() {
                       </div>
                     )}
 
-                    {service.offences && (
+                    {(service as any).offences && (
                       <div className="mb-6">
                         <h3 className="font-semibold text-foreground mb-3">Offences Include:</h3>
                         <ul className="space-y-2">
-                          {service.offences.map((offence) => (
+                          {(service as any).offences.map((offence: string) => (
                             <li key={offence} className="flex items-start gap-2 text-sm text-muted-foreground">
                               <CheckCircle className="w-4 h-4 text-secondary flex-shrink-0 mt-0.5" />
                               {offence}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {(service as any).services && (
+                      <div className="mb-6">
+                        <h3 className="font-semibold text-foreground mb-3">Services Include:</h3>
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                          {(service as any).services.map((item: string) => (
+                            <li key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
+                              <CheckCircle className="w-4 h-4 text-secondary flex-shrink-0" />
+                              {item}
                             </li>
                           ))}
                         </ul>

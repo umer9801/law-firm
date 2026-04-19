@@ -5,6 +5,7 @@ import Link from "next/link"
 import { useState } from "react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
+import { FloatingCallButton } from "@/components/floating-call-button"
 import { AnimatedSection } from "@/components/animated-section"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -28,20 +29,20 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Fax",
-    content: "(905) 232-0213",
-    href: "tel:9052320213",
+    content: "(1-866) 930-3888",
+    href: "tel:18669303888",
   },
   {
     icon: Mail,
     title: "Email",
-    content: "info@prudentiallegal.ca",
-    href: "mailto:info@prudentiallegal.ca",
+    content: "info@prudentiallegalservices.com",
+    href: "mailto:info@prudentiallegalservices.com",
   },
   {
     icon: MapPin,
     title: "Address",
-    content: "120 Traders Blvd East, Unit 202\nMississauga, ON L4Z 2H7",
-    href: "https://maps.google.com/?q=120+Traders+Blvd+East+Unit+202+Mississauga+ON+L4Z+2H7",
+    content: "9300 Goreway Drive, Suite 205\nBrampton, ON L6P 4N1",
+    href: "https://maps.google.com/?q=9300+Goreway+Drive+Suite+205+Brampton+ON+L6P+4N1",
   },
 ]
 
@@ -90,6 +91,7 @@ export default function ContactPage() {
     return (
       <div className="min-h-screen bg-background">
         <Navigation />
+        <FloatingCallButton />
         <section className="pt-32 pb-20">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-2xl mx-auto text-center">
@@ -113,6 +115,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <FloatingCallButton />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20">
@@ -153,13 +156,13 @@ export default function ContactPage() {
                   href={info.href}
                   target={info.title === "Address" ? "_blank" : undefined}
                   rel={info.title === "Address" ? "noopener noreferrer" : undefined}
-                  className="flex items-start gap-4 p-6 bg-muted rounded-xl hover:bg-muted/80 transition-colors group"
+                  className="flex items-start gap-4 p-6 bg-muted rounded-xl hover:bg-muted/80 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
                 >
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
                     <info.icon className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1">{info.title}</h3>
+                    <h3 className="font-semibold text-foreground mb-1 group-hover:text-secondary transition-colors">{info.title}</h3>
                     <p className="text-sm text-muted-foreground whitespace-pre-line">{info.content}</p>
                   </div>
                 </a>
@@ -281,7 +284,7 @@ export default function ContactPage() {
                 {/* Map */}
                 <div className="rounded-2xl overflow-hidden shadow-xl h-[300px] lg:h-[400px]">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887.4326!2d-79.6341!3d43.6416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b4043f8e7c9cd%3A0x8e7f8e7c9c9c9c9c!2s120%20Traders%20Blvd%20E%2C%20Mississauga%2C%20ON%20L4Z%202H7!5e0!3m2!1sen!2sca!4v1234567890"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2882.8!2d-79.7!3d43.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s9300%20Goreway%20Dr%2C%20Brampton%2C%20ON%20L6P%204N1!5e0!3m2!1sen!2sca!4v1234567890"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
