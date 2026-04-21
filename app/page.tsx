@@ -335,6 +335,38 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Video Section */}
+      <section className="py-20 bg-muted">
+        <div className="container mx-auto px-4 lg:px-8">
+          <AnimatedSection className="text-center max-w-3xl mx-auto mb-12">
+            <span className="inline-block px-4 py-2 bg-secondary text-secondary-foreground rounded-full text-sm font-bold mb-6 shadow-md">
+              Watch Our Introduction
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-6">
+              Learn More About Our Services
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              Watch this video to understand how we can help you with your legal matters.
+            </p>
+          </AnimatedSection>
+
+          <AnimatedSection delay={200}>
+            <div className="max-w-4xl mx-auto">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black aspect-video">
+                <video
+                  controls
+                  className="w-full h-full"
+                  poster="/images/video-poster.jpg"
+                >
+                  <source src="/video 1.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
       <Footer />
     </div>
   )
