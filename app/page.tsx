@@ -356,9 +356,9 @@ export default function HomePage() {
                 <video
                   controls
                   className="w-full h-full"
-                  poster="/images/video-poster.jpg"
+                  preload="metadata"
                 >
-                  <source src="/video 1.mp4" type="video/mp4" />
+                  <source src="/videos/1.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
