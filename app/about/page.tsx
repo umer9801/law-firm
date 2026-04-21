@@ -54,7 +54,7 @@ const credentials = [
     title: "Law Society Member",
     description: (
       <span className="flex items-center gap-2">
-        Member of <img src="/images/lawon.png" alt="Law Society of Ontario" className="h-5 w-auto inline-block" />
+        Licensed by <img src="/images/lawon.png" alt="Law Society of Ontario" className="h-5 w-auto inline-block" />
       </span>
     ),
   },

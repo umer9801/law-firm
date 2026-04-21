@@ -62,7 +62,7 @@ export function HeroCarousel({ onSloganChange }: HeroCarouselProps) {
   const slide = heroSlides[currentSlide]
 
   return (
-    <section className="relative min-h-[60vh] flex items-center justify-center pt-20">
+    <section className="relative min-h-[50vh] flex items-center justify-center pt-20">
       {/* Background Images */}
       {heroSlides.map((s, index) => (
         <div
