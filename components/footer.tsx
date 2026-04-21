@@ -15,7 +15,7 @@ const quickLinks = [
   { name: "About Us", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "For Lawyers", href: "/services-for-lawyers" },
-  { name: "Contact", href: "/contact" },
+  { name: "Contact Us", href: "/contact" },
   { name: "Book Consultation", href: "/book-consultation" },
 ]
 

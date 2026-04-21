@@ -129,7 +129,7 @@ export default function HomePage() {
               <Scale className="w-10 h-10 md:w-12 md:h-12 text-amber-700 flex-shrink-0" />
             </div>
             <p className="text-muted-foreground text-lg md:text-xl">
-              Don't wait to protect your rights. Our experienced team is ready to provide you with the legal representation you deserve.
+              Don't wait to protect your rights. I am ready to provide you with the legal representation you deserve.
             </p>
           </AnimatedSection>
         </div>
@@ -147,7 +147,7 @@ export default function HomePage() {
                     alt="Satheesan Kumarasamy"
                     width={600}
                     height={700}
-                    className="object-cover w-full h-[500px]"
+                    className="object-cover object-top w-full h-[500px]"
                   />
                 </div>
                 <div className="absolute -bottom-6 -right-6 w-64 h-64 bg-secondary/20 rounded-2xl -z-0" />
@@ -156,7 +156,7 @@ export default function HomePage() {
             </AnimatedSection>
 
             <AnimatedSection direction="right">
-              <span className="inline-block px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-medium mb-6">
+              <span className="inline-block px-4 py-2 bg-secondary text-secondary-foreground rounded-full text-sm font-bold mb-6 shadow-md">
                 About Us
               </span>
               <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-6">
@@ -177,7 +177,7 @@ export default function HomePage() {
                 <li className="flex items-center gap-3 text-foreground">
                   <CheckCircle className="w-5 h-5 text-secondary flex-shrink-0" />
                   <span className="flex items-center gap-2">
-                    Member of <img src="/images/lawon.png" alt="Law Society of Ontario" className="h-6 w-auto" />
+                    Licensed by <img src="/images/lawon.png" alt="Law Society of Ontario" className="h-6 w-auto" />
                   </span>
                 </li>
                 {[
@@ -204,10 +204,10 @@ export default function HomePage() {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 lg:py-32 bg-muted">
+      <section className="py-12 lg:py-16 bg-muted">
         <div className="container mx-auto px-4 lg:px-8">
           <AnimatedSection className="text-center max-w-2xl mx-auto mb-16">
-            <span className="inline-block px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-medium mb-6">
+            <span className="inline-block px-4 py-2 bg-secondary text-secondary-foreground rounded-full text-sm font-bold mb-6 shadow-md">
               Our Services
             </span>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-6">
@@ -243,7 +243,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <AnimatedSection direction="left">
-              <span className="inline-block px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-medium mb-6">
+              <span className="inline-block px-4 py-2 bg-secondary text-secondary-foreground rounded-full text-sm font-bold mb-6 shadow-md">
                 Why Choose Us
               </span>
               <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-6">

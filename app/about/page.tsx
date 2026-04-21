@@ -153,7 +153,7 @@ export default function AboutPage() {
                     alt="Satheesan Kumarasamy"
                     width={600}
                     height={700}
-                    className="object-cover w-full h-[600px]"
+                    className="object-cover object-top w-full h-[600px]"
                   />
                 </div>
                 <div className="absolute -bottom-6 -right-6 w-64 h-64 bg-secondary/20 rounded-2xl -z-0" />
@@ -171,7 +171,7 @@ export default function AboutPage() {
                     Notary Public | Licensed Paralegal
                   </p>
                   <div className="flex items-center gap-2">
-                    <span className="text-sm text-muted-foreground">Member of</span>
+                    <span className="text-sm text-muted-foreground">Licensed by</span>
                     <img src="/images/lawon.png" alt="Law Society of Ontario" className="h-8 w-auto" />
                   </div>
                 </div>

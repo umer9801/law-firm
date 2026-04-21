@@ -23,7 +23,7 @@ export function Navigation() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <div className="w-20 h-20 rounded-lg overflow-hidden flex items-center justify-center">
+            <div className="w-28 h-28 rounded-lg overflow-hidden flex items-center justify-center">
               <img src="/images/logo.png" alt="Prudential Legal Services" className="w-full h-full object-contain" />
             </div>
           </Link>
