@@ -9,6 +9,7 @@ import { AnimatedSection } from "@/components/animated-section"
 import { ServiceCard } from "@/components/service-card"
 import { HeroCarousel } from "@/components/hero-carousel"
 import { FloatingCallButton } from "@/components/floating-call-button"
+import { FeaturedCarousel } from "@/components/featured-carousel"
 import { Button } from "@/components/ui/button"
 import { 
   Scale, 
@@ -332,6 +333,24 @@ export default function HomePage() {
               </div>
             </AnimatedSection>
           </div>
+        </div>
+      </section>
+
+      {/* Featured Gallery Section */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <AnimatedSection className="text-center max-w-3xl mx-auto mb-12">
+            <span className="inline-block px-4 py-2 bg-secondary text-secondary-foreground rounded-full text-sm font-bold mb-6 shadow-md">
+              Featured
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-6">
+              Gallery
+            </h2>
+          </AnimatedSection>
+
+          <AnimatedSection delay={200}>
+            <FeaturedCarousel />
+          </AnimatedSection>
         </div>
       </section>
 
